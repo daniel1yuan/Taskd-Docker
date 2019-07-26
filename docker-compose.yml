@@ -1,0 +1,12 @@
+# Docker Compose file for taskd server
+# @author Daniel Yuan (danielyuan.me)
+version: '3'
+services:
+  taskd:
+    build: .
+    ports:
+      - 53589:53589
+    environment:
+      - TASKDDATA=/taskd
+      - TASKDCN=0.0.0.0
+
