@@ -12,7 +12,9 @@ if ! test -e ${TASKDDATA}/config; then
   # Copy certificates generation
   cp /usr/share/taskd/pki/generate* ${TASKDDATA}/pki
   cp /usr/share/taskd/pki/vars ${TASKDDATA}/pki
+  cp /app/taskd/server.config ${TASKDDATA}/pki/vars
   cd ${TASKDDATA}/pki
+  cat ./vars
   ./generate
   cd /
 

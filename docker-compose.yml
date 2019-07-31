@@ -3,10 +3,19 @@
 version: '3'
 services:
   taskd:
-    build: .
+    build:
+      context: .
+      args:
+        - GID=53589
+        - UID=53589
+        - USER=taskd-service
     ports:
       - 53589:53589
+    volumes:
+      - ./taskd:/app/taskd
+      - ./var:/var/taskd
     environment:
-      - TASKDDATA=/taskd
+      - TASKDDATA=/var/taskd
       - TASKDCN=0.0.0.0
-
+    restart_policy:
+      condition: any
